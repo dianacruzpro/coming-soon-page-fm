@@ -1,0 +1,25 @@
+@mixin flexbox ($a, $b, $c, $d, $e:0) {
+  display: flex;
+  flex-flow: $a $b;
+  justify-content: $c;
+  align-items: $d;
+  gap: $e;
+}
+
+@mixin grid ($columnas, $espacio){
+  display: grid;
+  grid-template-columns: repeat($columnas, 1fr);
+  gap: $espacio;
+}
+@mixin grid-column ($column,$min:1fr,$max:1fr, $espacio:0){
+  display: grid;
+  grid-template-columns: $column minmax($min, $max);
+  gap: $espacio;
+}
+
+
+@mixin center-grid {
+  display: grid;
+  place-content: center;
+}
+

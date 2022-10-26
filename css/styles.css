@@ -1,0 +1,384 @@
+@charset "UTF-8";
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;600&display=swap");
+/* ✔Custom Properties */
+/* Primary*/
+/* Neutral*/
+/* Gradients*/
+/* Typography */
+/* Optional */
+/* ✔ Configuring the animations, in case the user has disabled the animations. */
+@media (prefers-reduced-motion: reduce) {
+  /* I advise to put the specific tag, because it affects the performance with "*" */
+  * {
+    animation: none;
+    transition: none;
+  }
+}
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box; /* To avoid problems in box model */
+  vertical-align: baseline; /* To align text & images */
+}
+
+img,
+picture,
+video,
+iframe,
+figure {
+  max-width: 100%;
+  width: 100%;
+  display: block;
+  /* opcional */
+  object-fit: cover;
+  /* opcional */
+  object-position: center center;
+}
+
+a {
+  display: block;
+}
+
+p a {
+  display: inline;
+}
+
+li {
+  list-style-type: none;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+span,
+a,
+strong,
+blockquote,
+i,
+b,
+u,
+em {
+  font-size: 1em;
+  font-weight: inherit;
+  font-style: inherit;
+  text-decoration: none;
+  color: inherit;
+}
+
+/* ✔ Avoiding problems with quotes pseudo elements. */
+blockquote::before,
+blockquote::after,
+q::before,
+q::after {
+  content: "";
+  content: none;
+}
+
+/* ✔ Leveling problems of fonts and placement of forms. */
+form,
+input,
+textarea,
+select,
+button,
+label {
+  font-family: inherit;
+  font-size: inherit;
+  hyphens: auto; /** Si el texto no cabe en el contenedor/linea, coloca un "-" en el corte de la palabra */
+  background-color: transparent;
+  display: block;
+  color: inherit;
+  appearance: none; /* opcional */
+}
+
+/* ✔ Resetting tablels */
+table,
+tr,
+td {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* ✔ Avoid problems with SVG */
+svg {
+  width: 100%;
+  display: block;
+  fill: currentColor;
+}
+
+/* ✔ Configuring the typography of the entire web */
+body {
+  max-width: 100%;
+  min-height: 100vh;
+  font-size: 100%;
+  font-family: "Josefin Sans", sans-serif;
+  color: hsl(0deg, 6%, 24%);
+  background: #fff;
+  line-height: 1.4em; /* This is optional but, line spacing recommendation: between 1.4em and 1.6em */
+  /* optional */ /*hyphens: auto;*/
+  /* optional */
+  font-smooth: always; /* To better define the letter */
+  /* optional */
+  --webkit-font-smoothing: antialiased;
+  /* optional */
+  --moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  display: grid;
+  place-content: center;
+}
+
+.container {
+  max-width: 1440px;
+  max-height: 100vh;
+  overflow: hidden;
+  transition: 0.5s;
+  display: flex;
+  flex-flow: column-reverse nowrap;
+  justify-content: center;
+  align-items: center;
+  gap: 0;
+}
+.container__article {
+  max-width: 100%;
+  width: 100%;
+  height: 100%;
+}
+.container__logo {
+  padding: 1.5rem 0 0 1.5rem;
+  margin-bottom: 1.5rem;
+}
+.container__logo--img {
+  max-width: 8rem;
+}
+.container__logo--2 {
+  display: none;
+}
+
+.article {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: start;
+  align-items: center;
+  gap: 0;
+  padding: 0 2.5rem;
+}
+.article__form {
+  margin: 0 auto;
+  max-width: 35rem;
+  width: 100%;
+}
+.article__form--box {
+  position: relative;
+}
+.article__form--button {
+  position: absolute;
+  top: 15%;
+  transform: translateY(-16%);
+  right: 0;
+  background-image: linear-gradient(135deg, rgb(248, 191, 191) 0%, rgb(238, 140, 140) 100%);
+  padding: 0.85rem 1.5rem;
+  border-radius: 2rem;
+  transition: 0.5s;
+}
+.article__form--button:hover {
+  background-image: linear-gradient(135deg, hsl(0deg, 80%, 86%) 0%, hsl(0deg, 80%, 86%) 100%);
+}
+.article__form--error {
+  margin-top: 1rem;
+  padding: 0 1rem;
+  color: hsl(0deg, 93%, 68%);
+  font-size: 0.9rem;
+  display: none;
+}
+.article__form--input {
+  padding: 0.8rem 1rem;
+  font-size: 1rem;
+  border: 2px solid hsl(0deg, 36%, 70%);
+  border-radius: 1.5rem;
+  width: 100%;
+  margin-top: 2rem;
+  color: hsl(0deg, 6%, 24%);
+  font-family: inherit;
+}
+.article__form--input::placeholder {
+  color: hsl(0deg, 36%, 70%);
+}
+.article__form--label {
+  position: absolute;
+  top: 0;
+  right: 4.5rem;
+  transform: translateY(22%);
+  display: none;
+}
+.article__form--icon {
+  width: 2rem;
+}
+.article__h1 {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+  gap: 0;
+  max-width: 15rem;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 2.7rem;
+  line-height: 2.7rem;
+  letter-spacing: 0.6rem;
+  margin: 4rem auto 1.5rem;
+  font-weight: 600;
+}
+.article__p {
+  max-width: 35rem;
+  color: hsl(0deg, 36%, 70%);
+  text-align: center;
+}
+.article__span {
+  color: hsl(0deg, 36%, 70%);
+  font-weight: 300;
+}
+
+.hero {
+  height: auto;
+}
+
+.attribution {
+  position: fixed;
+  padding: 0 0 0 1.5rem;
+  background: linear-gradient(135deg, rgb(248, 191, 191) 0%, rgb(238, 140, 140) 100%);
+  border-radius: 50px;
+  bottom: 10px;
+  right: 10px;
+  width: 4rem;
+  height: 4rem;
+  overflow: hidden;
+  transition: 0.4s;
+  text-align: left;
+  line-height: 1.2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.9rem;
+}
+.attribution__text {
+  transition: opacity 0.3s 0.3s;
+  opacity: 0;
+  min-width: 19rem;
+  margin: 0.2rem 0 0;
+  color: hsl(0deg, 6%, 24%);
+  font-weight: 600;
+}
+.attribution__text--a {
+  color: #fff;
+}
+.attribution__img {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  max-width: 4rem;
+  border: 4px solid hsl(0deg, 93%, 68%);
+  border-radius: 50%;
+  cursor: pointer;
+}
+.attribution:hover {
+  width: 19.5rem;
+  border-radius: 50px;
+}
+.attribution:hover .attribution__text {
+  opacity: 1;
+}
+
+@media (min-width: 768px) {
+  body {
+    background: url("../images/bg-pattern-desktop.svg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+  }
+  .container {
+    height: 100vh;
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 0;
+  }
+  .container__logo {
+    display: none;
+  }
+  .container__logo--2 {
+    position: absolute;
+    top: 1.5rem;
+    left: 1.5rem;
+    display: block;
+    padding: 0;
+  }
+  .container__logo--2--img {
+    max-width: 8rem;
+  }
+  .article {
+    grid-column: 1/4;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: start;
+    gap: 0;
+  }
+  .article__h1 {
+    margin: 0 0 1rem;
+    font-size: 4rem;
+    line-height: 4rem;
+  }
+  .article__h1, .article__span, .article__p {
+    text-align: left;
+    align-items: flex-start;
+  }
+  .article__form {
+    margin: 0;
+  }
+  .article__form--button {
+    cursor: pointer;
+    padding: 0.85rem 2.5rem;
+  }
+  .article__form--label {
+    right: 6rem;
+  }
+  .hero {
+    height: 100%;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    gap: 0;
+    grid-column: 4/-1;
+  }
+  .hero__img {
+    height: 100%;
+  }
+  .hero__picture {
+    height: 100%;
+  }
+}
+@media (min-width: 1300px) {
+  .article {
+    padding: 0 6rem;
+  }
+  .container__logo--2 {
+    position: absolute;
+    top: 1.5rem;
+    left: 6rem;
+    display: block;
+    padding: 0;
+  }
+}
+
+/*# sourceMappingURL=styles.css.map */

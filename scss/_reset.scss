@@ -1,0 +1,129 @@
+@import "./_variables.scss";
+
+/* Optional */
+/* ✔ Configuring the animations, in case the user has disabled the animations. */
+@media (prefers-reduced-motion: reduce) {
+  /* I advise to put the specific tag, because it affects the performance with "*" */
+  * {
+    animation: none;
+    transition: none;
+  }
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box; /* To avoid problems in box model */
+  vertical-align: baseline; /* To align text & images */
+}
+
+img,
+picture,
+video,
+iframe,
+figure {
+  max-width: 100%;
+  width: 100%;
+  display: block;
+  /* opcional */
+  object-fit: cover;
+  /* opcional */
+  object-position: center center;
+}
+
+a {
+  display: block;
+}
+
+p a {
+  display: inline;
+}
+
+li {
+  list-style-type: none;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+span,
+a,
+strong,
+blockquote,
+i,
+b,
+u,
+em {
+  font-size: 1em;
+  font-weight: inherit;
+  font-style: inherit;
+  text-decoration: none;
+  color: inherit;
+}
+
+/* ✔ Avoiding problems with quotes pseudo elements. */
+blockquote::before,
+blockquote::after,
+q::before,
+q::after {
+  content: "";
+  content: none;
+}
+
+/* ✔ Leveling problems of fonts and placement of forms. */
+form,
+input,
+textarea,
+select,
+button,
+label {
+  font-family: inherit;
+  font-size: inherit;
+  hyphens: auto; /** Si el texto no cabe en el contenedor/linea, coloca un "-" en el corte de la palabra */
+  background-color: transparent;
+  display: block;
+  color: inherit;
+  appearance: none; /* opcional */
+}
+
+/* ✔ Resetting tablels */
+table,
+tr,
+td {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* ✔ Avoid problems with SVG */
+svg {
+  width: 100%;
+  display: block;
+  fill: currentColor;
+}
+
+/* ✔ Configuring the typography of the entire web */
+body {
+  max-width: 100%;
+  min-height: 100vh;
+  font-size: 100%;
+  font-family: $tipo-principal;
+  color: $Dark-Grayish-Red;
+  background: #fff;
+  line-height: 1.4em; /* This is optional but, line spacing recommendation: between 1.4em and 1.6em */
+  /* optional */ /*hyphens: auto;*/
+  /* optional */
+  font-smooth: always; /* To better define the letter */
+  /* optional */
+  --webkit-font-smoothing: antialiased;
+  /* optional */
+  --moz-osx-font-smoothing: grayscale;
+}

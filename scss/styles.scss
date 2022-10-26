@@ -1,0 +1,211 @@
+@import "_reset.scss";
+@import "_mixins.scss";
+body {
+  @include center-grid;
+}
+
+.container {
+  max-width: 1440px;
+  max-height: 100vh;
+  overflow: hidden;
+  transition: .5s;
+  @include flexbox(column-reverse, nowrap, center, center,0);
+  &__article {
+    max-width: 100%;
+    width: 100%;
+    height: 100%;
+  }
+  &__logo {
+    padding: 1.5rem 0 0 1.5rem;
+    margin-bottom: 1.5rem;
+    &--img {max-width: 8rem;}
+  }
+  &__logo--2 {display: none;}
+}
+.article {
+  @include flexbox(column, nowrap, start, center,0);
+  padding: 0 2.5rem;
+  &__form {
+    margin: 0 auto;
+    max-width: 35rem;
+    width: 100%;
+    &--box {position: relative;}
+    &--button {
+      position: absolute;
+      top: 15%;
+      transform: translateY(-16%);
+      right: 0;
+      background-image: linear-gradient($Gradient2);
+      padding: .85rem 1.5rem;
+      border-radius: 2rem;
+      transition: .5s;
+      &:hover{background-image: linear-gradient($Gradient3);}
+    }
+    &--error {
+      margin-top: 1rem;
+      padding: 0 1rem;
+      color: $Soft-Red;
+      font-size: .9rem;
+      display: none;
+    }
+    &--input {
+      padding: .8rem 1rem;
+      font-size: 1rem;
+      border: 2px solid $Desaturated-Red;
+      border-radius: 1.5rem;
+      width: 100%;
+      margin-top: 2rem;
+      color: $Dark-Grayish-Red;
+      font-family: inherit;
+
+      &::placeholder{color: $Desaturated-Red;}
+    }
+    &--label{
+      position: absolute;
+      top: 0;
+      right: 4.5rem;
+      transform: translateY(22%);
+      display: none;
+    }
+    &--icon{width: 2rem;}
+  }
+  &__h1 {
+    @include flexbox(column, nowrap, center, center,0);
+    max-width: 15rem;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 2.7rem;
+    line-height: 2.7rem;
+    letter-spacing: .6rem;
+    margin: 4rem auto 1.5rem;
+    font-weight: 600;
+  }
+  &__p {
+    max-width: 35rem;
+    color: $Desaturated-Red;
+    text-align: center;
+  }
+  &__span {
+    color: $Desaturated-Red;
+    font-weight: 300;
+  }
+}
+.hero {
+  height: auto;
+}
+
+.attribution {
+  position: fixed;
+  padding: 0 0 0 1.5rem;
+  background: linear-gradient($Gradient2);
+  border-radius: 50px;
+  bottom: 10px;
+  right: 10px;
+  width: 4rem;
+  height: 4rem;
+  overflow: hidden;
+  transition: 0.4s;
+  text-align: left;
+  line-height: 1.2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.9rem;
+
+  &__text {
+    transition: opacity 0.3s 0.3s;
+    opacity: 0;
+    min-width: 19rem;
+    margin: 0.2rem 0 0;
+    color: $Dark-Grayish-Red;
+    font-weight: 600;
+
+    &--a {
+      color: #fff;
+    }
+  }
+
+  &__img {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    max-width: 4rem;
+    border: 4px solid $Soft-Red;
+    border-radius: 50%;
+    cursor: pointer;
+  }
+
+  &:hover {
+    width: 19.5rem;
+    border-radius: 50px;
+
+    .attribution__text {
+      opacity: 1;
+    }
+  }
+}
+
+@media (min-width: 768px){
+  body{
+    background: url("../images/bg-pattern-desktop.svg");
+    background-repeat: no-repeat;
+    background-size:cover;
+    background-position: center;
+  }
+  .container{
+    height: 100vh;
+    position: relative;
+    @include grid(5,0);
+    &__logo {display: none;}
+    &__logo--2 {
+      position: absolute;
+      top: 1.5rem;
+      left: 1.5rem;
+      display: block;
+      padding: 0;
+      &--img {max-width: 8rem;}
+    }
+  }
+
+  .article{
+    grid-column: 1/4;
+    @include flexbox(column, nowrap, center, start,0);
+    &__h1{
+      margin: 0 0 1rem;
+      font-size: 4rem;
+      line-height: 4rem;
+    }
+    &__h1,&__span,&__p{
+      text-align: left;
+      align-items: flex-start;
+    }
+    &__form{
+      margin: 0;
+      &--button{
+        cursor: pointer;
+        padding: .85rem 2.5rem;
+      }
+      &--label{right: 6rem;}
+    }
+  }
+  .hero{
+    height: 100%;
+    @include flexbox(column, nowrap, center, center,0);
+    grid-column: 4/-1;
+    &__img {height: 100%;}
+    &__picture {height: 100%;}
+  }
+}
+
+@media (min-width: 1300px){
+  .article {padding: 0 6rem;}
+  .container{
+    &__logo--2 {
+      position: absolute;
+      top: 1.5rem;
+      left: 6rem;
+      display: block;
+      padding: 0;
+    }
+  }
+}
